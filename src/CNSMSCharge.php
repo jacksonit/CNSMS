@@ -19,10 +19,10 @@ class CNSMSCharge
      */
     public function __construct()
     {
-        $this->APIKEY       = config('sms.APIKEY');
-        $this->SECRETKEY    = config('sms.SECRETKEY');
-        $this->BRANDNAME    = config('sms.BRANDNAME');
-        $this->URL_API      = config('sms.URL_API');
+        $this->APIKEY       = config('cnsms.APIKEY');
+        $this->SECRETKEY    = config('cnsms.SECRETKEY');
+        $this->BRANDNAME    = config('cnsms.BRANDNAME');
+        $this->URL_API      = config('cnsms.URL_API');
     }
 
     /**
@@ -42,12 +42,12 @@ class CNSMSCharge
             $data_send = [
                 'api_key'       => $this->APIKEY,
                 'secret_key'    => $this->SECRETKEY,
-                'brand_name'    => $this->BRANDNAME
+                'brand_name'    => $this->BRANDNAME,
                 'phone'         => $phone,
                 'content'       => $content
             ];
 
-            $response = $client->request('POST', $record_server->ip,  [
+            $response = $client->request('POST', $this->URL_API,  [
                 'form_params' => $data_send
             ]);
 
