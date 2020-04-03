@@ -32,6 +32,6 @@ class CNSMSServiceProvider extends ServiceProvider
             $loader->alias('CNSMS', 'Jacksonit\CNSMS\Facades\CNSMSCharge');
         });
 
-        $this->app->bind('CNSMS', CNSMSCharge::class);
+        $this->app->bind('CNSMSCharge', CNSMSCharge::class);
     }
 }
